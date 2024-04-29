@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(110, 151, 212);
+    color: rgb(11, 86, 148);
+    width: 50%;
+    margin: 0 auto;
+}
+
+ul li {
+    cursor: pointer;
+}
+
+.finish {
+    text-decoration: line-through;
+}
