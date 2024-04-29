@@ -1,0 +1,48 @@
+<!DOCTYPE html>            
+<html lang="en">                
+<head>                      
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/format.css">
+    <title>TODO</title>
+</head>
+<body>
+    <h1>{{ .Title }}</h1>
+    
+    <form action="/create" method="post">
+        <label for="todo">New Todo:</label>
+        <input type="text" id="todo" name="todo" required>
+        <button type="submit">Create</button>
+    </form>
+    
+    <form action="/update" method="post">
+        <ul>
+            <!--{{ range $index, $todo := .Todos }} 
+                <li>
+                    <input type="checkbox" id="todo{{$index}}" name="todo{{$index}}" value="{{$index}}">
+                    <label for="todo{{$index}}" class="{{ if $todo.Finish }}finish{{ end }}">{{ $todo.Object }}</label>
+                </li>
+            {{ end }}
+            //-->
+        </ul>
+        <button type="submit">Mark as Done</button>
+    </form>
+
+    <form action="/remove" method="post">
+        <ul>
+            {{ range $index, $todo := .Todos }}
+            <li>
+                <input type="checkbox" id="todo{{$index}}" name="todo[]" value="{{$index}}">
+                <label for="todo{{$index}}" class="{{ if $todo.Finish }}finish{{ end }}">{{ $todo.Object }}</label>
+            </li>
+            {{ end }}
+        </ul>
+        <button type="submit">Remove Selected Tasks</button>
+    </form>
+
+
+
+    <script src="/static/js/script.js" type="text/javascript"></script>
+</body>
+</html>
